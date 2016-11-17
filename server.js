@@ -17,14 +17,16 @@ const executableSchema = makeExecutableSchema({
   resolvers: Resolvers,
 });
 
-const agent = new OpticsAgent();
-agent.instrumentSchema(executableSchema);
+OpticsAgent.configureAgent({
+  printReports: true,
+});
+OpticsAgent.instrumentSchema(executableSchema);
 
-graphQLServer.use('/graphql', agent.middleware());
+graphQLServer.use('/graphql', OpticsAgent.middleware());
 graphQLServer.use('/graphql', bodyParser.json(), apolloExpress((req) => ({
   schema: executableSchema,
   context: {
-    opticsContext: agent.context(req),
+    opticsContext: OpticsAgent.context(req),
   },
 })));
 
