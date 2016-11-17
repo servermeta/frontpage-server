@@ -11,10 +11,16 @@ const posts = [
   { id: 3, authorId: 2, title: 'Advanced GraphQL', votes: 1 },
 ];
 
+function wait(data) {
+  return new Promise(resolve => {
+    setTimeout(() => resolve(data), 100);
+  });
+}
+
 const resolveFunctions = {
   Query: {
     posts() {
-      return posts;
+      return wait(posts);
     },
   },
   Mutation: {
@@ -34,7 +40,7 @@ const resolveFunctions = {
   },
   Post: {
     author(post) {
-      return find(authors, { id: post.authorId });
+      return wait(find(authors, { id: post.authorId }));
     },
   },
 };
