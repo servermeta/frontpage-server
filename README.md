@@ -1,5 +1,7 @@
 # Hello World server
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/apollographql/frontpage-server.svg)](https://greenkeeper.io/)
+
 The server that is used for the examples on dev.apollodata.com.
 
 This is a really simple GraphQL server that uses [Apollo Server](https://github.com/apollostack/apollo-server) and [GraphQL Tools](https://github.com/apollostack/graphql-tools) to serve a simple schema.
