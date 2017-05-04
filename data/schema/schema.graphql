@@ -1,0 +1,22 @@
+
+
+type Post {
+    id: Int!
+    title: String
+    author: Author
+    votes: Int
+}
+
+type Query {
+    author(id: Int!): Author
+}
+
+type Mutation {
+    upvotePost (
+        postId: Int!
+    ): Post
+}
+
+type Subscription {
+    postUpvoted: Post
+}

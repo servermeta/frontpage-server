@@ -18,7 +18,7 @@ const resolveFunctions = {
       return posts;
     },
     author(_, { id }) {
-      return find(authors, { id: id });
+      return find(authors, { id });
     },
   },
   Mutation: {
@@ -50,3 +50,4 @@ const resolveFunctions = {
 };
 
 export default resolveFunctions;
+
